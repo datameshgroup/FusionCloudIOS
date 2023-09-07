@@ -1,7 +1,7 @@
 {
   "name": "FusionCloudIOS",
-  "version": "5.0",
-  "summary": "A short description of FusionCloudIOS.",
+  "version": "0.1.0",
+  "summary": "FusionCloudIOS API for Satellite.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/van-agustin/FusionCloudIOS",
   "license": {
@@ -12,11 +12,18 @@
     "datameshgroup": "vanessa_agustin@yahoo.com"
   },
   "source": {
-    "git": "https://github.com/datameshgroup/FusionCloudIOS.git",
+    "git": "https://github.com/van-agustin/FusionCloudIOS.git",
     "tag": "0.1.0"
   },
+  "swift_versions": "5.0",
   "platforms": {
     "ios": "13.0"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
   },
   "source_files": "FusionCloudIOS/Classes/**/*",
   "dependencies": {
@@ -28,9 +35,7 @@
     ],
     "Starscream": [
       "4.0.4"
-    ],
-    "Alamofire": [
-      "~> 5.3.0"
     ]
-  }
+  },
+  "swift_version": "5.0"
 }
