@@ -1,0 +1,6 @@
+framework module FusionCloudIOS {
+  umbrella header "FusionCloudIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

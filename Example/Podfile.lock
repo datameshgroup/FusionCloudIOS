@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (5.3.0)
+  - FusionCloudIOS (5.0):
+    - Alamofire (~> 5.3.0)
+    - IDZSwiftCommonCrypto (~> 0.13)
+    - ObjectMapper (~> 4)
+    - Starscream (= 4.0.4)
+  - IDZSwiftCommonCrypto (0.13.0)
+  - ObjectMapper (4.2.0)
+  - Starscream (4.0.4)
+
+DEPENDENCIES:
+  - FusionCloudIOS (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IDZSwiftCommonCrypto
+    - ObjectMapper
+    - Starscream
+
+EXTERNAL SOURCES:
+  FusionCloudIOS:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  FusionCloudIOS: 0b907b5f6599752421a7ee178a33321def2a03ad
+  IDZSwiftCommonCrypto: 00dd37cdfbd149312a7e5a582cf9909f8b129f44
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+
+PODFILE CHECKSUM: 41c33fac8d5c2563fe89552fc68bf0f809e99c94
+
+COCOAPODS: 1.12.1
