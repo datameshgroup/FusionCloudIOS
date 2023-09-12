@@ -30,6 +30,9 @@ public protocol FusionClientDelegate: AnyObject {
     func cardAcquisitionResponseReceived(client: FusionClient, messageHeader: MessageHeader, cardAcquisitionResponse: CardAcquisitionResponse)
     func logoutResponseResponseReceived(client: FusionClient, messageHeader: MessageHeader, logoutResponse: LogoutResponse)
     func credentialsError(client: FusionClient,error: String)
+    
+    func pairingResponseReceived() //TODO
+    func pairingErrorReceived(client: FusionClient,error: String)
 }
 
 @available(iOS 12.0, *)
@@ -293,4 +296,35 @@ public class FusionClient: WebSocketDelegate{
         }
     }
     
+    public func getPairingDataJson(posName : String?) -> String! {
+        return getPairingData(posName: posName).toJSONString()
+    }
+    
+    func getPairingData(posName : String?) -> PairingData {
+        let pairingData = PairingData()
+        pairingData.saleID = fusionCloudConfig!.saleID ?? UUID().uuidString
+        pairingData.pairingPOIID = UUID().uuidString
+        pairingData.kek = fusionCloudConfig!.kekValue
+        pairingData.cerificationCode = fusionCloudConfig!.certificationCode
+        pairingData.posName = posName
+        pairingData.version = 1
+        
+        return pairingData
+    }
+    
+    public func createPairingData (saleID: String?, pairingPOIID: String?, kek: String?, posName: String?, certificationCode: String?, version:Int = 1) -> PairingData? {
+        if certificationCode == nil{
+            appendLog(type: "error", content: "Invalid pairing request. certificationCode == nil")
+            return nil
+        }
+        let pairingData = PairingData()
+        pairingData.saleID = (saleID ?? "").isEmpty ? UUID().uuidString : saleID!
+        pairingData.pairingPOIID = (pairingPOIID ?? "").isEmpty ? UUID().uuidString : pairingPOIID!
+        pairingData.kek = (kek ?? "").isEmpty ? PairingData.createKEK() : kek!
+        pairingData.cerificationCode = certificationCode
+        pairingData.posName = (saleID ?? "").isEmpty ? UUID().uuidString : saleID!
+        pairingData.version = 1
+
+        return pairingData
+    }
 }
