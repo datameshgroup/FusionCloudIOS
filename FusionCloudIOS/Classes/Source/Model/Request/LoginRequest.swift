@@ -19,6 +19,7 @@ public class LoginRequest: Mappable {
     public var operatorID: String?
     public var shiftNumber: String?
     public var pOISerialNumber: String?
+    public var pairing: Bool?
     
     public required init?(map: Map) {}
     public required init(){}
@@ -31,6 +32,7 @@ public class LoginRequest: Mappable {
         operatorID          <- map["OperatorID"]
         shiftNumber         <- map["ShiftNumber"]
         pOISerialNumber     <- map["POISerialNumber"]
+        pairing             <- map["Pairing"]
     }
     
 }

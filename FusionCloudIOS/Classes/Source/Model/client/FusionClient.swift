@@ -253,6 +253,11 @@ public class FusionClient: WebSocketDelegate{
         let mh = self.messageHeader!.toJSONString()
 
         if mh!.contains("Login") {
+            // TODO Check for missing KEK! AND OTHER REQUIRED FIELDS FOR LOGIN
+            if(fusionCloudConfig!.kekValue == nil){
+                fusionClientDelegate?.credentialsError(client: self, error: "Missing KEK Value")
+                return
+            }
             let k = fusionCloudConfig!.kekValue!
             if k.count != 48{
                 appendLog(type: "error", content: "Invalid KEK Value")

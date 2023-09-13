@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PaymentController-->
         <scene sceneID="f4Z-ch-WhW">
             <objects>
-                <viewController id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PaymentController" id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJh-qt-gZD">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,71 +373,189 @@
         <!--SettingsController-->
         <scene sceneID="EaX-M4-ThK">
             <objects>
-                <viewController storyboardIdentifier="SettingsStoryboard" title="SettingsController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tQk-PQ-mV4" customClass="SettingsController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsStoryboard" title="SettingsController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tQk-PQ-mV4" customClass="SettingsController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wqi-VM-hFl">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJC-uK-L9p">
-                                <rect key="frame" x="374" y="43" width="332" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iJC-uK-L9p">
+                                <rect key="frame" x="374" y="223" width="350" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="ti2-tq-kf4"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Pair Terminal"/>
                                 <connections>
                                     <action selector="btnPairTerminal:" destination="tQk-PQ-mV4" eventType="touchUpInside" id="FJf-04-xt5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="T7S-Bg-tk5">
+                                <rect key="frame" x="373.5" y="324" width="350" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Unpair Terminal"/>
+                                <connections>
+                                    <action selector="btnUnpairTerminal:" destination="tQk-PQ-mV4" eventType="touchUpInside" id="iyA-6o-eNC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="1o6-fS-YfT">
+                                <rect key="frame" x="374" y="427" width="350" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="RqO-rC-bfa"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Exit Settings"/>
+                                <connections>
+                                    <action selector="btnExit:" destination="tQk-PQ-mV4" eventType="touchUpInside" id="byk-6H-ZOd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RFU-tJ-TS3">
+                                <rect key="frame" x="373" y="117" width="350" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="View Config"/>
+                                <connections>
+                                    <action selector="btnViewSettings:" destination="tQk-PQ-mV4" eventType="touchUpInside" id="xW1-F9-BUr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bZi-u0-MJU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T7S-Bg-tk5" firstAttribute="top" secondItem="iJC-uK-L9p" secondAttribute="bottom" constant="28" id="2qC-3c-hKf"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="leading" secondItem="bZi-u0-MJU" secondAttribute="leading" constant="374" id="3k2-fj-Ytm"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="leading" secondItem="T7S-Bg-tk5" secondAttribute="leading" id="GqY-8i-nmJ"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="top" secondItem="wqi-VM-hFl" secondAttribute="top" constant="223" id="IeD-cj-Wa0"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="centerX" secondItem="wqi-VM-hFl" secondAttribute="centerX" id="VyB-Ab-jup"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="leading" secondItem="RFU-tJ-TS3" secondAttribute="leading" id="d5U-93-tAn"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="centerX" secondItem="RFU-tJ-TS3" secondAttribute="centerX" id="esB-HL-BNm"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="leading" secondItem="1o6-fS-YfT" secondAttribute="leading" id="fQZ-OZ-LlN"/>
+                            <constraint firstItem="1o6-fS-YfT" firstAttribute="top" secondItem="T7S-Bg-tk5" secondAttribute="bottom" constant="68.5" id="gBd-Ef-LCz"/>
+                            <constraint firstItem="1o6-fS-YfT" firstAttribute="centerX" secondItem="RFU-tJ-TS3" secondAttribute="centerX" id="phF-k5-UG1"/>
+                            <constraint firstItem="iJC-uK-L9p" firstAttribute="top" secondItem="RFU-tJ-TS3" secondAttribute="bottom" constant="25" id="rEY-r1-fjc"/>
+                            <constraint firstItem="T7S-Bg-tk5" firstAttribute="centerX" secondItem="RFU-tJ-TS3" secondAttribute="centerX" id="rWn-l6-9TQ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="SettingsView" destination="wqi-VM-hFl" id="9xj-h1-NAw"/>
+                        <outlet property="btnExit" destination="1o6-fS-YfT" id="rNs-k3-Yet"/>
                         <outlet property="btnPairTerminal" destination="iJC-uK-L9p" id="hBD-99-bye"/>
+                        <outlet property="btnUnpairTerminal" destination="T7S-Bg-tk5" id="VPq-xg-6zu"/>
+                        <outlet property="btnViewSettings" destination="RFU-tJ-TS3" id="wIz-TP-iOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKI-cO-hyd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="645.55555555555554" y="102.96296296296296"/>
         </scene>
-        <!--Controller-->
+        <!--QRCodeController-->
         <scene sceneID="rEn-9P-kzM">
             <objects>
-                <viewController storyboardIdentifier="QRStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kpp-V2-BNm" customClass="QRController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRStoryboard" title="QRCodeController" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kpp-V2-BNm" customClass="QRController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yp5-vX-RiW">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan QR Code with terminal and press next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nha-7o-FUA">
-                                <rect key="frame" x="376" y="85" width="329" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TERMINAL PAIRING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nha-7o-FUA">
+                                <rect key="frame" x="393" y="58" width="294" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8c-wm-NG4">
-                                <rect key="frame" x="339.39699863561054" y="120.19645293292638" width="399.99999999951979" height="399.99999999963939"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-6y-MWk">
-                                <rect key="frame" x="650" y="528" width="89" height="37"/>
+                                <rect key="frame" x="842" y="651" width="152" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Next"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnNext:" destination="kpp-V2-BNm" eventType="touchUpInside" id="0Ae-5G-yft"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnP-bu-aUn">
+                                <rect key="frame" x="119" y="546" width="314" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Enter credentials manually">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnManual:" destination="kpp-V2-BNm" eventType="touchUpInside" id="Qrx-hC-3ef"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8c-wm-NG4">
+                                <rect key="frame" x="119" y="130" width="399.99999999951979" height="399.99999999963939"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kgs-CH-DyY">
+                                <rect key="frame" x="567" y="130" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="1. On the DataMesh terminal, press the ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="24" name=".SFNS-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="⚙">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="24" name="Menlo-Regular"/>
+                                            <font key="NSOriginalFont" size="24" name=".SFNS-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> (gear) icon, enter the merchant password, and press "Pair with POS"  2. Scan the QR code using the DataMesh terminal, and follow the instructions on the terminal screen.  3. After the terminal has successfully paired with the POS, press Next</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="24" name=".SFNS-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eao-9K-VhP">
+                                <rect key="frame" x="672" y="651" width="152" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemCyanColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Cancel">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnCancel:" destination="V49-RR-0yR" eventType="touchUpInside" id="FiM-Qd-Vqb"/>
+                                    <action selector="btnCancel:" destination="kpp-V2-BNm" eventType="touchUpInside" id="MPM-h2-eIn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HsG-nT-MYb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="btnCancel" destination="eao-9K-VhP" id="Fav-T2-7sr"/>
+                        <outlet property="btnManual" destination="LnP-bu-aUn" id="wSs-jf-vke"/>
+                        <outlet property="btnNext" destination="bXj-6y-MWk" id="reT-92-OL3"/>
+                        <outlet property="imageQRCode" destination="m8c-wm-NG4" id="KWK-xP-KDi"/>
+                        <outlet property="txtPairingInstructions" destination="Kgs-CH-DyY" id="m7f-1h-O3i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Plo-1e-DjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="645.55555555555554" y="757.77777777777771"/>
         </scene>
-        <!--View Controller-->
+        <!--PairSuccessController-->
         <scene sceneID="jks-cZ-TFo">
             <objects>
-                <viewController storyboardIdentifier="PairedStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="spT-pT-k6g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PairedStoryboard" title="PairSuccessController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="spT-pT-k6g" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o9M-9w-jCy">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -461,6 +579,16 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" editable="NO" text="POI ID &lt;&lt;POI ID of terminal displayed here&gt;&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-Br-DOO">
+                                <rect key="frame" x="0.0" y="202" width="1080" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="elV-jK-GuQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -470,10 +598,128 @@
             </objects>
             <point key="canvasLocation" x="317.77777777777777" y="1413.3333333333333"/>
         </scene>
-        <!--View Controller-->
+        <!--ManualSettingsController-->
+        <scene sceneID="eKS-Q4-bDu">
+            <objects>
+                <viewController storyboardIdentifier="ManualSettingStoryboard" title="ManualSettingsController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V49-RR-0yR" customClass="ManualSettingsController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="Pjn-Y8-Yjj">
+                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TERMINAL SETTINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIK-KD-TcI">
+                                <rect key="frame" x="393" y="35" width="326" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99k-JF-ahW">
+                                <rect key="frame" x="271" y="130" width="570" height="288"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sale ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHx-Qj-cLv">
+                                <rect key="frame" x="327" y="194" width="73" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POI ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGd-UL-Psz">
+                                <rect key="frame" x="327" y="259" width="66" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KEK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtY-ce-NiD">
+                                <rect key="frame" x="327" y="329" width="43" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4TK-MC-QtG">
+                                <rect key="frame" x="519" y="191" width="265" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvS-cS-mWV">
+                                <rect key="frame" x="519" y="256" width="265" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOh-db-xPb">
+                                <rect key="frame" x="519" y="326" width="265" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49J-H2-Meo">
+                                <rect key="frame" x="823" y="622" width="152" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="OK">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnOK:" destination="V49-RR-0yR" eventType="touchUpInside" id="YL3-v1-A3f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO3-7X-XTy">
+                                <rect key="frame" x="654" y="622" width="152" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemCyanColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Cancel">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnCancel:" destination="V49-RR-0yR" eventType="touchUpInside" id="X5w-Ot-gjc"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="JL2-2U-xjS">
+                                <rect key="frame" x="761" y="418" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Socket Connected. Logging in..." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvt-s9-1TK">
+                                <rect key="frame" x="271" y="448" width="570" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NGk-m0-W5b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnCancel" destination="xO3-7X-XTy" id="122-wS-5Dr"/>
+                        <outlet property="btnOK" destination="49J-H2-Meo" id="8IA-W6-FHW"/>
+                        <outlet property="inidcatorLoading" destination="JL2-2U-xjS" id="akI-3L-pEE"/>
+                        <outlet property="inputKEK" destination="VOh-db-xPb" id="k4k-yg-qlZ"/>
+                        <outlet property="inputPOIIID" destination="YvS-cS-mWV" id="ks8-ls-h1J"/>
+                        <outlet property="inputSaleID" destination="4TK-MC-QtG" id="aJw-Z0-tHH"/>
+                        <outlet property="txtConnectionStatus" destination="nvt-s9-1TK" id="5JF-Vc-4nF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okC-fh-qDm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28.333333333333332" y="757.77777777777771"/>
+        </scene>
+        <!--PairFailController-->
         <scene sceneID="tv3-Gn-hAb">
             <objects>
-                <viewController storyboardIdentifier="NotPairedStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EvI-fc-zuF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotPairedStoryboard" title="PairFailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EvI-fc-zuF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rCQ-Cs-wlP">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -525,6 +771,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

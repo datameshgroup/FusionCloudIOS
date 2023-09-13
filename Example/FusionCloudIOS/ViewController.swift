@@ -12,6 +12,7 @@ import FusionCloudIOS
 import WebKit
 
 var fusionClient = FusionClient()
+var fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true)
 
 class ViewController: UIViewController, FusionClientDelegate {
     func pairingResponseReceived() {
@@ -177,54 +178,78 @@ class ViewController: UIViewController, FusionClientDelegate {
         
         initValues()
     }
-   ///UNCOMMENT FOR PRODUCTION
-//    let testEnvironment = false
-//    let fusionCloudConfig = FusionCloudConfig(testEnvironmentui: false)
-
-//    ///COMMENT FOR PRODUCTION
-    let testEnvironment = true
-    let fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true)
     
-    
-//    var fusionClient = FusionClient()
     
     var logs: String = ""
     
-    public func initConfig() {
-        fusionCloudConfig.allowSelfSigned = true
-             ///TO BE PROVIDED BY DATAMESH
-             fusionCloudConfig.saleID = testEnvironment ? "VA POS"  : "<<SALE ID - PROD>>"
-             fusionCloudConfig.poiID = testEnvironment ? "DMGVA002" : "<<POI ID - PROD>>"
-                     
-             fusionCloudConfig.providerIdentification = testEnvironment ? "Company A" : "<<PROD>>"
-             fusionCloudConfig.applicationName = testEnvironment ? "POS Retail" : "<<PROD>>"
-             fusionCloudConfig.softwareVersion = testEnvironment ? "01.00.00" : "<<PROD>>"
-             fusionCloudConfig.certificationCode = testEnvironment ? "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169" : "<<PROD>>"
-                     
-              /*per pinpad*/
-              fusionCloudConfig.kekValue = testEnvironment ? "44DACB2A22A4A752ADC1BBFFE6CEFB589451E0FFD83F8B21" : "<<PROD>>"
-                     
-              fusionClient = FusionClient(fusionCloudConfig: fusionCloudConfig)
-              fusionClient.fusionClientDelegate = self
-    }
+//    public func initFusion() {
+//        fusionClient = FusionClient(fusionCloudConfig: fusionCloudConfig)
+//        fusionClient.fusionClientDelegate = self
+//
+//    }
     
     func showReceipt(doShow: Bool){
         vwLoading.isHidden = doShow
         wvReceipt.isHidden = !doShow
     }
     
-    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(true)
+        if(UserDefaults.standard.isPaired()){
+            fusionCloudConfig.saleID = UserDefaults.standard.getSaleID()
+            fusionCloudConfig.poiID = UserDefaults.standard.getPOIID()
+
+            fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
+
+            fusionCloudConfig.kekValue = UserDefaults.standard.getKEK()
+            
+            UserDefaults.standard.initFusion()
+            
+            fusionClient.fusionClientDelegate = self
+            
+            btnLogin.isEnabled = true
+            
+        }else{
+            btnLogin.isEnabled = false
+        }
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         overrideUserInterfaceStyle = .light
+        
+        
+        //Provided by DataMesh
+        fusionCloudConfig.providerIdentification = "Company A"
+        fusionCloudConfig.applicationName = "POS Retail"
+        fusionCloudConfig.softwareVersion = "01.00.00"
+        UserDefaults.standard.setCertificationCode(value: "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169")
+        fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
+        
         txtLogs.isEditable = false
         let tapSettingsRecognizer = UITapGestureRecognizer(target: self, action: #selector(btnSettingsTapped(_:)))
         btnSettings.isUserInteractionEnabled = true
         btnSettings.addGestureRecognizer(tapSettingsRecognizer)
         
-        initConfig()
+        // Check if POS is paired with terminal first before initialising socket connection
+        if(UserDefaults.standard.isPaired()){
+            fusionCloudConfig.saleID = UserDefaults.standard.getSaleID()
+            fusionCloudConfig.poiID = UserDefaults.standard.getPOIID()
 
+            fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
+
+            fusionCloudConfig.kekValue = UserDefaults.standard.getKEK()
+            
+            UserDefaults.standard.initFusion()
+            
+            fusionClient.fusionClientDelegate = self
+            
+            btnLogin.isEnabled = true
+            
+        }else{
+            btnLogin.isEnabled = false
+        }
         
         btnAbort.isHidden=true
         imgLoading.isHidden=true;
@@ -346,7 +371,7 @@ class ViewController: UIViewController, FusionClientDelegate {
             saleSoftware.providerIdentification = fusionCloudConfig.providerIdentification
             saleSoftware.applicationName = fusionCloudConfig.applicationName
             saleSoftware.softwareVersion = fusionCloudConfig.softwareVersion
-            saleSoftware.certificationCode = fusionCloudConfig .certificationCode
+            saleSoftware.certificationCode = fusionCloudConfig.certificationCode
                 
         let saleTerminalData = SaleTerminalData()
         saleTerminalData.terminalEnvironment = TerminalEnvironment.Attended
@@ -687,7 +712,8 @@ class ViewController: UIViewController, FusionClientDelegate {
         //will try to reconnect to socket
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10)) { [self] in
             if self.secondsRemaining>0{
-                initConfig()
+                UserDefaults.standard.initFusion()
+//                fusionClient.fusionClientDelegate = self
             }
         }
     }

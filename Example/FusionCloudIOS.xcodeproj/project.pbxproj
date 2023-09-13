@@ -10,6 +10,8 @@
 		031F70EF406AB6BD8D280A64 /* Pods_FusionCloudIOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06F753A7F9A1FB09ED868F2 /* Pods_FusionCloudIOS_Tests.framework */; };
 		26B7F1172AB02731006A5DDC /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7F1162AB02731006A5DDC /* SettingsController.swift */; };
 		26B7F1192AB04345006A5DDC /* QRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7F1182AB04345006A5DDC /* QRController.swift */; };
+		26B7F11B2AB14D07006A5DDC /* ManualSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7F11A2AB14D07006A5DDC /* ManualSettingsController.swift */; };
+		26B7F11F2AB15F1E006A5DDC /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7F11E2AB15F1E006A5DDC /* UserDefaults.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		1942C17E42F6E8721365D55D /* Pods-FusionCloudIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FusionCloudIOS_Example.release.xcconfig"; path = "Target Support Files/Pods-FusionCloudIOS_Example/Pods-FusionCloudIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		26B7F1162AB02731006A5DDC /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		26B7F1182AB04345006A5DDC /* QRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRController.swift; sourceTree = "<group>"; };
+		26B7F11A2AB14D07006A5DDC /* ManualSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSettingsController.swift; sourceTree = "<group>"; };
+		26B7F11E2AB15F1E006A5DDC /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		39AEAA0C3359F9C9805D0DF7 /* Pods-FusionCloudIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FusionCloudIOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-FusionCloudIOS_Example/Pods-FusionCloudIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		40615E0D8AF80F85CE53E025 /* Pods_FusionCloudIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FusionCloudIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* FusionCloudIOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FusionCloudIOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				26B7F11E2AB15F1E006A5DDC /* UserDefaults.swift */,
+				26B7F11A2AB14D07006A5DDC /* ManualSettingsController.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				26B7F1162AB02731006A5DDC /* SettingsController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -347,6 +353,8 @@
 				26B7F1172AB02731006A5DDC /* SettingsController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				26B7F11B2AB14D07006A5DDC /* ManualSettingsController.swift in Sources */,
+				26B7F11F2AB15F1E006A5DDC /* UserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
