@@ -272,6 +272,21 @@ public class PaymentReceipt: Mappable {
         if(receipt == "") {
             return ""
         }
+        
+        let decodedReceipt = receipt.base64Decoded()!
+        let decodedReceiptln = decodedReceipt.replacingOccurrences(of: "<br/>", with: "\n")
+                                            .replacingOccurrences(of: "</p>", with: "\n\n")
+                                            .withoutHtmlTags
+        return decodedReceiptln
+    }
+    
+    public func getReceiptAsHtmlText() -> String? {
+        
+        let receipt = outputContent?.outputXHTML ?? ""
+        
+        if(receipt == "") {
+            return ""
+        }
 
         return receipt.base64Decoded()
     }
@@ -291,5 +306,10 @@ extension String {
         }
         return nil
     }
-
+    
+    var withoutHtmlTags: String {
+        return self.replacingOccurrences(of: "<[^>]+>", with: "", options:
+        .regularExpression, range: nil).replacingOccurrences(of: "&[^;]+;", with:
+        "", options:.regularExpression, range: nil)
+        }
 }

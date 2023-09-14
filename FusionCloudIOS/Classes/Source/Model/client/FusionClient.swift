@@ -30,9 +30,6 @@ public protocol FusionClientDelegate: AnyObject {
     func cardAcquisitionResponseReceived(client: FusionClient, messageHeader: MessageHeader, cardAcquisitionResponse: CardAcquisitionResponse)
     func logoutResponseResponseReceived(client: FusionClient, messageHeader: MessageHeader, logoutResponse: LogoutResponse)
     func credentialsError(client: FusionClient,error: String)
-    
-    func pairingResponseReceived() //TODO
-    func pairingErrorReceived(client: FusionClient,error: String)
 }
 
 @available(iOS 12.0, *)
@@ -252,8 +249,9 @@ public class FusionClient: WebSocketDelegate{
     public func sendMessage<T: Mappable>(requestBody: T, type: String){
         let mh = self.messageHeader!.toJSONString()
 
+        //TODO Skip this if pairing!
         if mh!.contains("Login") {
-            // TODO Check for missing KEK! AND OTHER REQUIRED FIELDS FOR LOGIN
+
             if(fusionCloudConfig!.kekValue == nil){
                 fusionClientDelegate?.credentialsError(client: self, error: "Missing KEK Value")
                 return

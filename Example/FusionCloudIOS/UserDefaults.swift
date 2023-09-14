@@ -84,13 +84,13 @@ extension UserDefaults{
 //    func getSoftwareVersion() -> String{
 //        return string(forKey: UserDefaultKeys.softwareVersion.rawValue) ?? ""
 //    }
-    func setCertificationCode(value: String){
-        set(value, forKey: UserDefaultKeys.certificationCode.rawValue)
-    }
-    
-    func getCertificationCode() -> String{
-        return string(forKey: UserDefaultKeys.certificationCode.rawValue) ?? ""
-    }
+//    func setCertificationCode(value: String){
+//        set(value, forKey: UserDefaultKeys.certificationCode.rawValue)
+//    }
+//    
+//    func getCertificationCode() -> String{
+//        return string(forKey: UserDefaultKeys.certificationCode.rawValue) ?? ""
+//    }
     
     
     
@@ -107,6 +107,6 @@ enum UserDefaultKeys: String {
 //    case providerIdentification
 //    case applicationName
 //    case softwareVersion
-    case certificationCode
+//    case certificationCode
 }
 

@@ -82,14 +82,6 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
         loginFailure(errorMessage: error)
     }
     
-    func pairingResponseReceived() {
-        print("pairingResponseReceived")
-    }
-    
-    func pairingErrorReceived(client: FusionCloudIOS.FusionClient, error: String) {
-        print("pairingErrorReceived")
-    }
-    
     @IBOutlet weak var inputSaleID: UITextField!
     @IBOutlet weak var inputPOIIID: UITextField!
     @IBOutlet weak var inputKEK: UITextField!
@@ -97,7 +89,7 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
     @IBOutlet weak var btnOK: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
     
-    @IBOutlet weak var inidcatorLoading: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     
     @IBOutlet weak var txtConnectionStatus: UILabel!
     
@@ -109,7 +101,7 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
         overrideUserInterfaceStyle = .light
         
         txtConnectionStatus.isHidden = true
-        inidcatorLoading.isHidden = true
+        indicatorLoading.isHidden = true
         
         if(UserDefaults.standard.isPaired()){
             inputSaleID.text = UserDefaults.standard.getSaleID()
@@ -124,7 +116,7 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
     }
     
     @IBAction func btnOK(_ sender: Any) {
-        inidcatorLoading.isHidden = false
+        indicatorLoading.isHidden = false
         
         //TODO REQUIRE KEK and change FusionClient Login logic
         //TODO do login before saving, error message when login failed.
@@ -147,7 +139,6 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
         fusionClient.messageHeader?.messageCategory = MessageCategory.Login
         fusionClient.messageHeader?.saleID = inputSaleID.text
         fusionClient.messageHeader?.poiID = inputPOIIID.text
-        fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
         fusionCloudConfig.kekValue = inputKEK.text
         
                 
@@ -172,7 +163,7 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
     }
     
     func connectionSuccessful(){
-        inidcatorLoading.isHidden=true
+        indicatorLoading.isHidden=true
         txtConnectionStatus.isHidden = false
         txtConnectionStatus.text = "Socket Connected. Logging in..."
         txtConnectionStatus.textColor = UIColor.systemGreen
@@ -186,21 +177,21 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
     }
     
     func connectionFailure(errorMessage: String){
-        inidcatorLoading.isHidden=true
+        indicatorLoading.isHidden=true
         txtConnectionStatus.isHidden = false
         txtConnectionStatus.text = "Socket Connection Failed. \nDetail: " + errorMessage
         txtConnectionStatus.textColor = UIColor.systemRed
     }
     
     func loginFailure(errorMessage: String){
-        inidcatorLoading.isHidden=true
+        indicatorLoading.isHidden=true
         txtConnectionStatus.isHidden = false
         txtConnectionStatus.text = "Login Failed. Detail: " + errorMessage
         txtConnectionStatus.textColor = UIColor.systemRed
     }
     
     func loginSuccessful(){
-        inidcatorLoading.isHidden=true
+        indicatorLoading.isHidden=true
         txtConnectionStatus.isHidden = false
         txtConnectionStatus.text = "Login Successful. Saving.."
         txtConnectionStatus.textColor = UIColor.systemGreen

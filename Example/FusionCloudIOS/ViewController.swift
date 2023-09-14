@@ -13,16 +13,10 @@ import WebKit
 
 var fusionClient = FusionClient()
 var fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true)
+//TODO Add initialiser for fusionCloudConfig with provided by datamesh stuff
+
 
 class ViewController: UIViewController, FusionClientDelegate {
-    func pairingResponseReceived() {
-        print("pairingResponseReceived")
-    }
-    
-    func pairingErrorReceived(client: FusionCloudIOS.FusionClient, error: String) {
-        print("pairingErrorReceived")
-    }
-    
     @IBOutlet weak var vwRequest: UIView!
     @IBOutlet weak var vwLoading: UIView!
     @IBOutlet weak var vwResult: UIView!
@@ -199,7 +193,6 @@ class ViewController: UIViewController, FusionClientDelegate {
             fusionCloudConfig.saleID = UserDefaults.standard.getSaleID()
             fusionCloudConfig.poiID = UserDefaults.standard.getPOIID()
 
-            fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
 
             fusionCloudConfig.kekValue = UserDefaults.standard.getKEK()
             
@@ -224,8 +217,8 @@ class ViewController: UIViewController, FusionClientDelegate {
         fusionCloudConfig.providerIdentification = "Company A"
         fusionCloudConfig.applicationName = "POS Retail"
         fusionCloudConfig.softwareVersion = "01.00.00"
-        UserDefaults.standard.setCertificationCode(value: "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169")
-        fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
+        fusionCloudConfig.certificationCode = "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169"
+        
         
         txtLogs.isEditable = false
         let tapSettingsRecognizer = UITapGestureRecognizer(target: self, action: #selector(btnSettingsTapped(_:)))
@@ -236,9 +229,6 @@ class ViewController: UIViewController, FusionClientDelegate {
         if(UserDefaults.standard.isPaired()){
             fusionCloudConfig.saleID = UserDefaults.standard.getSaleID()
             fusionCloudConfig.poiID = UserDefaults.standard.getPOIID()
-
-            fusionCloudConfig.certificationCode = UserDefaults.standard.getCertificationCode()
-
             fusionCloudConfig.kekValue = UserDefaults.standard.getKEK()
             
             UserDefaults.standard.initFusion()
@@ -496,9 +486,13 @@ class ViewController: UIViewController, FusionClientDelegate {
         let transactionId = paymentResult?.paymentAcquirerData?.acquirerTransactionID?.transactionID ?? "not specified"
         let approvalCode = paymentResult?.paymentAcquirerData?.approvalCode ?? "not specified"
         
-        let receiptHTML = (paymentResponse.paymentReceipt?[0].getReceiptAsPlainText())
-        print("VAN" + receiptHTML! )
+        let receiptHTML = (paymentResponse.paymentReceipt?[0].getReceiptAsHtmlText())
         
+        // Just a test log to know the difference between getReceiptAsHtmlText and getReceiptAsPlainText
+        print("\nhtml\n" + receiptHTML! + "\n")
+        let test = (paymentResponse.paymentReceipt?[0].getReceiptAsPlainText())
+        print("\ntest\n" + test! + "\n")
+          
         
         if(success) {
             //Internal validation for masked pan + payment brand validation
@@ -772,19 +766,6 @@ class ViewController: UIViewController, FusionClientDelegate {
     }
     
 }
-extension String {
-     var htmlToAttributedString: NSAttributedString? {
-         guard let data = data(using: .utf8) else { return nil }
-         do {
-             return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
-         } catch {
-             return nil
-         }
-     }
-     var htmlToString: String {
-         return htmlToAttributedString?.string ?? ""
-     }
- }
 extension Data {
     var prettyPrintedJSONString: NSString? { /// NSString gives us a nice sanitized debugDescription
         guard let object = try? JSONSerialization.jsonObject(with: self, options: []),

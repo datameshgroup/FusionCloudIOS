@@ -12,7 +12,7 @@
         <!--PaymentController-->
         <scene sceneID="f4Z-ch-WhW">
             <objects>
-                <viewController title="PaymentController" id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" title="PaymentController" modalPresentationStyle="fullScreen" id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJh-qt-gZD">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -536,6 +536,20 @@
                                     <action selector="btnCancel:" destination="kpp-V2-BNm" eventType="touchUpInside" id="MPM-h2-eIn"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rxf-LA-93s">
+                                <rect key="frame" x="914" y="563" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Socket Connected. Logging in..." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vab-3a-at1">
+                                <rect key="frame" x="424" y="593" width="570" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HsG-nT-MYb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -545,7 +559,9 @@
                         <outlet property="btnManual" destination="LnP-bu-aUn" id="wSs-jf-vke"/>
                         <outlet property="btnNext" destination="bXj-6y-MWk" id="reT-92-OL3"/>
                         <outlet property="imageQRCode" destination="m8c-wm-NG4" id="KWK-xP-KDi"/>
+                        <outlet property="indicatorLoading" destination="rxf-LA-93s" id="uKp-5h-ay2"/>
                         <outlet property="txtPairingInstructions" destination="Kgs-CH-DyY" id="m7f-1h-O3i"/>
+                        <outlet property="txtStatus" destination="vab-3a-at1" id="lor-QE-CIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Plo-1e-DjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -555,7 +571,7 @@
         <!--PairSuccessController-->
         <scene sceneID="jks-cZ-TFo">
             <objects>
-                <viewController storyboardIdentifier="PairedStoryboard" title="PairSuccessController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="spT-pT-k6g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PairedStoryboard" title="PairSuccessController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="spT-pT-k6g" customClass="PairSuccessController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o9M-9w-jCy">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -578,6 +594,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="OK">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnOK:" destination="spT-pT-k6g" eventType="touchUpInside" id="djm-OM-l2x"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" editable="NO" text="POI ID &lt;&lt;POI ID of terminal displayed here&gt;&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-Br-DOO">
                                 <rect key="frame" x="0.0" y="202" width="1080" height="66"/>
@@ -593,6 +612,10 @@
                         <viewLayoutGuide key="safeArea" id="elV-jK-GuQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="btnOK" destination="JlM-ee-TUl" id="CsM-t5-R2u"/>
+                        <outlet property="txtPOIID" destination="ewc-Br-DOO" id="hay-YJ-UCG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wx-RZ-Hjs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -705,7 +728,7 @@
                     <connections>
                         <outlet property="btnCancel" destination="xO3-7X-XTy" id="122-wS-5Dr"/>
                         <outlet property="btnOK" destination="49J-H2-Meo" id="8IA-W6-FHW"/>
-                        <outlet property="inidcatorLoading" destination="JL2-2U-xjS" id="akI-3L-pEE"/>
+                        <outlet property="indicatorLoading" destination="JL2-2U-xjS" id="akI-3L-pEE"/>
                         <outlet property="inputKEK" destination="VOh-db-xPb" id="k4k-yg-qlZ"/>
                         <outlet property="inputPOIIID" destination="YvS-cS-mWV" id="ks8-ls-h1J"/>
                         <outlet property="inputSaleID" destination="4TK-MC-QtG" id="aJw-Z0-tHH"/>
@@ -719,7 +742,7 @@
         <!--PairFailController-->
         <scene sceneID="tv3-Gn-hAb">
             <objects>
-                <viewController storyboardIdentifier="NotPairedStoryboard" title="PairFailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EvI-fc-zuF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotPairedStoryboard" title="PairFailController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EvI-fc-zuF" customClass="PairFailureController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rCQ-Cs-wlP">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -731,6 +754,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="OK">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnOK:" destination="EvI-fc-zuF" eventType="touchUpInside" id="O3L-pZ-MCH"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" editable="NO" text="PAIRING FAILED" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXw-2p-JqZ">
                                 <rect key="frame" x="0.0" y="140" width="1080" height="66"/>
@@ -758,6 +784,10 @@
                         <viewLayoutGuide key="safeArea" id="x9Y-X1-hnf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="btnOK" destination="aoa-GS-E0Z" id="Q87-4w-zRV"/>
+                        <outlet property="txtErrorDescription" destination="qM5-Jq-ERq" id="KVf-U7-y29"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-5x-lEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
