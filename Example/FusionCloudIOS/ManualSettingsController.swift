@@ -117,17 +117,9 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
     
     @IBAction func btnOK(_ sender: Any) {
         indicatorLoading.isHidden = false
-        
-        //TODO REQUIRE KEK and change FusionClient Login logic
-        //TODO do login before saving, error message when login failed.
-        //AFTER SAVE open other storyboard fail or success
-        
-        
+
         UserDefaults.standard.initFusion()
         fusionClient.fusionClientDelegate = self
-        //is socket connected or not, sed error description
-        
-        // login after socket connect
     }
     
     func doLogin(){
@@ -168,7 +160,7 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
         txtConnectionStatus.text = "Socket Connected. Logging in..."
         txtConnectionStatus.textColor = UIColor.systemGreen
         
-        //TODO Check required input
+        //TODO Validate required input
         fusionCloudConfig.saleID = inputSaleID.text
         fusionCloudConfig.poiID = inputPOIIID.text
         fusionCloudConfig.kekValue = inputKEK.text
@@ -188,6 +180,15 @@ class ManualSettingsController: UIViewController, FusionClientDelegate{
         txtConnectionStatus.isHidden = false
         txtConnectionStatus.text = "Login Failed. Detail: " + errorMessage
         txtConnectionStatus.textColor = UIColor.systemRed
+        
+        errorDescription = txtConnectionStatus.text!
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "NotPairedStoryboard")
+            DispatchQueue.main.async { [weak self] in
+                self?.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
     func loginSuccessful(){

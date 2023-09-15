@@ -22,8 +22,25 @@ public class FusionCloudConfig{
     
     public var allowSelfSigned: Bool?
     
-    public required init(testEnvironmentui: Bool?) {
+//    public required init(testEnvironmentui: Bool?) {
+//        testEnvironment = testEnvironmentui ?? true
+//
+//        self.serverDomain = testEnvironment ? "wss://www.cloudposintegration.io/nexodev" : "wss://nexo.datameshgroup.io:5000"
+//        self.keyIdentifier = testEnvironment ? "SpecV2TestMACKey" : "SpecV2ProdMACKey"
+//        self.keyVersion = testEnvironment ? "20191122164326" : "20191122164326"
+//
+//    }
+    
+    public required init(testEnvironmentui: Bool?,
+                         providerIdentification:String!,
+                         applicationName:String!,
+                         certificationCode: String!,
+                         softwareVersion: String!) {
         testEnvironment = testEnvironmentui ?? true
+        self.providerIdentification = providerIdentification
+        self.applicationName = applicationName
+        self.certificationCode = certificationCode
+        self.softwareVersion = softwareVersion
         
         self.serverDomain = testEnvironment ? "wss://www.cloudposintegration.io/nexodev" : "wss://nexo.datameshgroup.io:5000"
         self.keyIdentifier = testEnvironment ? "SpecV2TestMACKey" : "SpecV2ProdMACKey"

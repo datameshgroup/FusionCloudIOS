@@ -132,7 +132,6 @@ class QRController: UIViewController, FusionClientDelegate{
                                        certificationCode: c)
         print(newPairingData?.toJSONString()! ?? "default value")
         let qrCodeValue = genQRCode(from: newPairingData?.toJSONString()! ?? "default value")
-        //TODO Check if qrCodeValue is valid
 
         imageQRCode.image = qrCodeValue
         imageQRCode.layer.magnificationFilter = kCAFilterNearest
@@ -180,7 +179,7 @@ class QRController: UIViewController, FusionClientDelegate{
         txtStatus.text = "Socket Connected. Logging in..."
         txtStatus.textColor = UIColor.systemGreen
         
-        //TODO Check required input
+        //TODO Validate required input
         
         doLogin()
     }

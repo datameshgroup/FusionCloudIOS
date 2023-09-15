@@ -12,7 +12,7 @@
         <!--PaymentController-->
         <scene sceneID="f4Z-ch-WhW">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" title="PaymentController" modalPresentationStyle="fullScreen" id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" title="PaymentController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJh-qt-gZD">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -599,7 +599,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" editable="NO" text="POI ID &lt;&lt;POI ID of terminal displayed here&gt;&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-Br-DOO">
-                                <rect key="frame" x="0.0" y="202" width="1080" height="66"/>
+                                <rect key="frame" x="0.0" y="202" width="1080" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>

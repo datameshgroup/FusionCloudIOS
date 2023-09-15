@@ -62,39 +62,7 @@ extension UserDefaults{
     func getPOIID() -> String{
         return string(forKey: UserDefaultKeys.poiID.rawValue) ?? ""
     }
-    
-//    func setProviderIdentification(value: String){
-//        set(value, forKey: UserDefaultKeys.providerIdentification.rawValue)
-//    }
-//
-//    func getProviderIdentification() -> String{
-//        return string(forKey: UserDefaultKeys.providerIdentification.rawValue) ?? ""
-//    }
-//    func setApplicationName(value: String){
-//        set(value, forKey: UserDefaultKeys.applicationName.rawValue)
-//    }
-//
-//    func getApplicationName() -> String{
-//        return string(forKey: UserDefaultKeys.applicationName.rawValue) ?? ""
-//    }
-//    func setSoftwareVersion(value: String){
-//        set(value, forKey: UserDefaultKeys.softwareVersion.rawValue)
-//    }
-//
-//    func getSoftwareVersion() -> String{
-//        return string(forKey: UserDefaultKeys.softwareVersion.rawValue) ?? ""
-//    }
-//    func setCertificationCode(value: String){
-//        set(value, forKey: UserDefaultKeys.certificationCode.rawValue)
-//    }
-//    
-//    func getCertificationCode() -> String{
-//        return string(forKey: UserDefaultKeys.certificationCode.rawValue) ?? ""
-//    }
-    
-    
-    
-}
+        }
 
 enum UserDefaultKeys: String {
     case isPaired
@@ -104,9 +72,5 @@ enum UserDefaultKeys: String {
     case posName
     
     case poiID
-//    case providerIdentification
-//    case applicationName
-//    case softwareVersion
-//    case certificationCode
 }
 

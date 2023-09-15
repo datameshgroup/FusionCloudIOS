@@ -12,9 +12,12 @@ import FusionCloudIOS
 import WebKit
 
 var fusionClient = FusionClient()
-var fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true)
-//TODO Add initialiser for fusionCloudConfig with provided by datamesh stuff
-
+//Provided by DataMesh
+var fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true,
+                                          providerIdentification: "Company A",
+                                          applicationName: "POS Retail",
+                                          certificationCode: "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169",
+                                          softwareVersion: "01.00.00")
 
 class ViewController: UIViewController, FusionClientDelegate {
     @IBOutlet weak var vwRequest: UIView!
@@ -176,11 +179,6 @@ class ViewController: UIViewController, FusionClientDelegate {
     
     var logs: String = ""
     
-//    public func initFusion() {
-//        fusionClient = FusionClient(fusionCloudConfig: fusionCloudConfig)
-//        fusionClient.fusionClientDelegate = self
-//
-//    }
     
     func showReceipt(doShow: Bool){
         vwLoading.isHidden = doShow
@@ -211,13 +209,6 @@ class ViewController: UIViewController, FusionClientDelegate {
         super.viewDidLoad()
     
         overrideUserInterfaceStyle = .light
-        
-        
-        //Provided by DataMesh
-        fusionCloudConfig.providerIdentification = "Company A"
-        fusionCloudConfig.applicationName = "POS Retail"
-        fusionCloudConfig.softwareVersion = "01.00.00"
-        fusionCloudConfig.certificationCode = "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169"
         
         
         txtLogs.isEditable = false
@@ -489,9 +480,9 @@ class ViewController: UIViewController, FusionClientDelegate {
         let receiptHTML = (paymentResponse.paymentReceipt?[0].getReceiptAsHtmlText())
         
         // Just a test log to know the difference between getReceiptAsHtmlText and getReceiptAsPlainText
-        print("\nhtml\n" + receiptHTML! + "\n")
+        print("\getReceiptAsHtmlText\n" + receiptHTML! + "\n")
         let test = (paymentResponse.paymentReceipt?[0].getReceiptAsPlainText())
-        print("\ntest\n" + test! + "\n")
+        print("\getReceiptAsPlainText\n" + test! + "\n")
           
         
         if(success) {

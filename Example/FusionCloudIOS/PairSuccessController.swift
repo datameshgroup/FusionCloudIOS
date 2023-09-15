@@ -18,7 +18,9 @@ class PairSuccessController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        txtPOIID.text = "POIID: " + UserDefaults.standard.getPOIID()
+        txtPOIID.text = "POIID: " + UserDefaults.standard.getPOIID() + "\n" +
+        "Generated SaleID: " + UserDefaults.standard.getSaleID() + "\n" +
+        "Generated KEK: " + UserDefaults.standard.getKEK() + "\n"
        
     }
     

@@ -249,7 +249,6 @@ public class FusionClient: WebSocketDelegate{
     public func sendMessage<T: Mappable>(requestBody: T, type: String){
         let mh = self.messageHeader!.toJSONString()
 
-        //TODO Skip this if pairing!
         if mh!.contains("Login") {
 
             if(fusionCloudConfig!.kekValue == nil){
@@ -325,9 +324,13 @@ public class FusionClient: WebSocketDelegate{
         pairingData.pairingPOIID = (pairingPOIID ?? "").isEmpty ? UUID().uuidString : pairingPOIID!
         pairingData.kek = (kek ?? "").isEmpty ? PairingData.createKEK() : kek!
         pairingData.cerificationCode = certificationCode
-        pairingData.posName = (saleID ?? "").isEmpty ? UUID().uuidString : saleID!
-        pairingData.version = 1
+        pairingData.posName = (posName ?? "").isEmpty ? "IOS POS" : posName!
+        pairingData.version = version
 
         return pairingData
+    }
+    
+    public func disconnect(){
+        socket?.disconnect()
     }
 }
