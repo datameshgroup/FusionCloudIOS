@@ -21,6 +21,7 @@ public class MessageHeader : Mappable {
         public var protocolVersion: String?
         public var saleID: String!
         public var poiID: String!
+        public var isPairing: Bool?
     
     
     public required init?(map: Map) {}
@@ -36,6 +37,8 @@ public class MessageHeader : Mappable {
          protocolVersion        <- map["ProtocolVersion"]
          saleID                 <- map["SaleID"]
          poiID                  <- map["POIID"]
+         
+         isPairing              <- map["IsPairing"]
      }
     
 }

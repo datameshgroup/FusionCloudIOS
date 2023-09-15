@@ -18,6 +18,7 @@
 		1D53C9DE4F439ECF57F92B2BE3E30D48 /* InputRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6882C2015814F1886FC8B92FDA4A7A95 /* InputRequest.swift */; };
 		203CA548DCC8B01DC4E81035A8E61947 /* MessageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96085EF0A73CE26092569C3821857887 /* MessageHeader.swift */; };
 		24F753603C7288466A3544182584D604 /* AbortRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3CA11BAC75D92659437C3D45DADB30 /* AbortRequest.swift */; };
+		26B7F1152AAECD55006A5DDC /* PairingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7F1142AAECD55006A5DDC /* PairingData.swift */; };
 		29C0A3B5AA3A953002A501E6837E2343 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC0B6E9B5B0AC5D186CB652238A721 /* TransformOf.swift */; };
 		2BB0ED4C4D302C7C2779D5B86D9968E3 /* FoundationTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441736F7DEE1DBA8301F75F98810020 /* FoundationTransport.swift */; };
 		2CD4E97F9CBAEEE05C70C57B73317F30 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639857F479D7179068BF43B4811CAE3C /* Security.swift */; };
@@ -117,7 +118,6 @@
 		F3C50B931C1F157E5BAE64F12DF39EAE /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F21994EB86B725853EE32B76D0C8618 /* LogoutResponse.swift */; };
 		F445F89531DC35FF5F1064667B2C281B /* StringHTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A56165FDA3848F30538CA39915BE48 /* StringHTTPHandler.swift */; };
 		F905FBEFC48AFF007C82F0B061E49162 /* SaleToPOIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF302472448DBE67FD124BE9DAB5732 /* SaleToPOIRequest.swift */; };
-		FA1813B6C029A47AD42A0840727E3E0D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCA340AEC7CC8FAB4779C146DC5E71 /* File.swift */; };
 		FAB6082832109EEE711BC5C4F127F035 /* FusionCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91981925FD91F10B7CCF5E671A8C0034 /* FusionCloud.swift */; };
 		FB636347805865A8AE03BD3FA0F8E3DA /* PaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156CA0C6780F0D39BC3843904E004A6B /* PaymentResponse.swift */; };
 		FC98AF1310BE12289A7DE00082E2BAEC /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071A35D00F3321360687E73392DB9C5 /* WebSocket.swift */; };
@@ -204,11 +204,11 @@
 		156CA0C6780F0D39BC3843904E004A6B /* PaymentResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PaymentResponse.swift; sourceTree = "<group>"; };
 		15AECDF36DD29DC8E825ED029F30825C /* Random.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Random.swift; path = IDZSwiftCommonCrypto/Random.swift; sourceTree = "<group>"; };
 		16164DC3988DEEE20DB9DA8D44BFD21B /* IDZSwiftCommonCrypto-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IDZSwiftCommonCrypto-umbrella.h"; sourceTree = "<group>"; };
-		1DBCA340AEC7CC8FAB4779C146DC5E71 /* File.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = File.swift; path = FusionCloudIOS/Classes/Source/File.swift; sourceTree = "<group>"; };
 		1E9ED2899BD84BE138BBFAED0EF8B781 /* NetworkManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1FAF499C8DDD6741D23F33FD01B47342 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
 		21C2FD8C9944801793156EC981BAB267 /* Pods-FusionCloudIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FusionCloudIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		21ECE728C35F042662A7DA692C97F62E /* Mapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mapper.swift; path = Sources/Mapper.swift; sourceTree = "<group>"; };
+		26B7F1142AAECD55006A5DDC /* PairingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingData.swift; sourceTree = "<group>"; };
 		29B8781A52B980A311EC70422A9245EF /* Pods-FusionCloudIOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FusionCloudIOS_Example-umbrella.h"; sourceTree = "<group>"; };
 		2A5D3E6E6AA44542D48FC8421D683089 /* ReconcillationRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReconcillationRequest.swift; sourceTree = "<group>"; };
 		2AD69CE0648B38D6F3F1AF7BDDC5C3C3 /* FusionClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FusionClient.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 		4522D641093BF1487BE2CC02440EA687 /* Data+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Extensions.swift"; path = "Sources/DataBytes/Data+Extensions.swift"; sourceTree = "<group>"; };
 		47A56165FDA3848F30538CA39915BE48 /* StringHTTPHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringHTTPHandler.swift; path = Sources/Framer/StringHTTPHandler.swift; sourceTree = "<group>"; };
 		47FBD17649BD41008D6C077BBA71BDA6 /* Mappable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mappable.swift; path = Sources/Mappable.swift; sourceTree = "<group>"; };
-		48DC8CB01575218FE762B8B42090E2B8 /* FusionCloudIOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FusionCloudIOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		48DC8CB01575218FE762B8B42090E2B8 /* FusionCloudIOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = FusionCloudIOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4BE66A0E6F76739BBA547E98878097D4 /* Pods-FusionCloudIOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FusionCloudIOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		4C6A7EF486F77AEB0CA6F77965930EB8 /* FusionCloudIOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FusionCloudIOS-umbrella.h"; sourceTree = "<group>"; };
 		4E3C3B22E34CC1AF652DDD3B434ADDDF /* SaleToPOILoginRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SaleToPOILoginRequest.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 		9C033794B56FFB50756300FA86BC601E /* Loyalty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Loyalty.swift; sourceTree = "<group>"; };
 		9C2D9E58276515F63F2F48BD3A953A84 /* TransactionStatusResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransactionStatusResponse.swift; sourceTree = "<group>"; };
 		9C87BE9C2759E4E3366F0DD874FC1F8E /* ReconcillationResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReconcillationResponse.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1921073F6D4643F13DF2C9E3D4B77F7 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		A3F32E3C88EE8610FAC4924F62F9BE9B /* WSEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSEngine.swift; path = Sources/Engine/WSEngine.swift; sourceTree = "<group>"; };
 		A8DFBB794C0340249BACDEE94C60725C /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/Operators.swift; sourceTree = "<group>"; };
@@ -298,12 +298,12 @@
 		AEFAB85FA8B95BDE5C5E6D168B2270BC /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		B02C0C3E272A5EDDACBFD783D6AF8659 /* Pods-FusionCloudIOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FusionCloudIOS_Tests-Info.plist"; sourceTree = "<group>"; };
 		B3FD51FC131E8351C726F596B298CC0C /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
-		B4C216EAB456395EE98971DF275AEFAB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B4C216EAB456395EE98971DF275AEFAB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B650BF03E5B2BF2E83628F8EFA696D9F /* Pods-FusionCloudIOS_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FusionCloudIOS_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B6CDD4E0066654C78EE0719B65B880CE /* FusionCloudIOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FusionCloudIOS; path = FusionCloudIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9084FE779702931E8DF1D00A2D725FB /* ObjectMapper */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ObjectMapper; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA085500A41C8A49DAC646878B02070 /* Pods-FusionCloudIOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FusionCloudIOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BCFFE8507BFAA2800245ED097C01E25C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BCFFE8507BFAA2800245ED097C01E25C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF5AA764A483A1EA0275BDF59134779D /* LoginResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		C01940EB200C2ABE26521E08E2E2FAFC /* EnumOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumOperators.swift; path = Sources/EnumOperators.swift; sourceTree = "<group>"; };
 		C0F380E3C8493E2A79C656A161B63910 /* ObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ObjectMapper.modulemap; sourceTree = "<group>"; };
@@ -399,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				6D3CA11BAC75D92659437C3D45DADB30 /* AbortRequest.swift */,
+				26B7F1142AAECD55006A5DDC /* PairingData.swift */,
 				374D1EC00F1E5DF94CE6054311E3BD55 /* CardAcquisitionRequest.swift */,
 				007A594761757FEC04E8FE6D12722848 /* CreditCardValidator.swift */,
 				3C6E8A4E8525EEA91A297799F2A4DA46 /* CustomField.swift */,
@@ -414,7 +415,6 @@
 				8FF302472448DBE67FD124BE9DAB5732 /* SaleToPOIRequest.swift */,
 				8FCDF4358F1021EDBECDCD1335A66DD5 /* TransactionStatusRequest.swift */,
 			);
-			name = Request;
 			path = Request;
 			sourceTree = "<group>";
 		};
@@ -447,7 +447,6 @@
 				15675D27811D877CA40E717C12C05DC9 /* URLTransform.swift */,
 				322A7E62D79B70714D8AC684988FBD42 /* Support Files */,
 			);
-			name = ObjectMapper;
 			path = ObjectMapper;
 			sourceTree = "<group>";
 		};
@@ -476,7 +475,6 @@
 				A3F32E3C88EE8610FAC4924F62F9BE9B /* WSEngine.swift */,
 				9780B70649F043921F021154B1BA43A9 /* Support Files */,
 			);
-			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -580,7 +578,6 @@
 		8B886EE215F71D1A3606E4D66F5951A8 /* FusionCloudIOS */ = {
 			isa = PBXGroup;
 			children = (
-				1DBCA340AEC7CC8FAB4779C146DC5E71 /* File.swift */,
 				46F12276C1FEBABCDB4C280B8AB49360 /* Model */,
 				DE0052BD7EE4EFF3FDF4F973C8AC3B57 /* Pod */,
 				68F57935C5A2A42029AC26B30EE3EF22 /* Support Files */,
@@ -611,7 +608,6 @@
 				337F24D1C957683121AB6E3B86929F9F /* SalePOIResponse.swift */,
 				9C2D9E58276515F63F2F48BD3A953A84 /* TransactionStatusResponse.swift */,
 			);
-			name = Response;
 			path = Response;
 			sourceTree = "<group>";
 		};
@@ -670,7 +666,6 @@
 				7C57FD211ADDB71E27166A36A7B3C739 /* Utilities.swift */,
 				9345F2593872DE324580DA9381CFA56A /* Support Files */,
 			);
-			name = IDZSwiftCommonCrypto;
 			path = IDZSwiftCommonCrypto;
 			sourceTree = "<group>";
 		};
@@ -679,7 +674,6 @@
 			children = (
 				2AD69CE0648B38D6F3F1AF7BDDC5C3C3 /* FusionClient.swift */,
 			);
-			name = client;
 			path = client;
 			sourceTree = "<group>";
 		};
@@ -1105,13 +1099,13 @@
 				BD488029656BDC8E774FDEC7FD5C04A5 /* DisplayResponse.swift in Sources */,
 				0D0FBA4EEC075929E50F879D70092A7E /* Enums.swift in Sources */,
 				8B7C411A06374E873115E73769ACAF5E /* EventNotification.swift in Sources */,
-				FA1813B6C029A47AD42A0840727E3E0D /* File.swift in Sources */,
 				32E2722C998BD4E1D54C4164C60DC83E /* FusionClient.swift in Sources */,
 				FAB6082832109EEE711BC5C4F127F035 /* FusionCloud.swift in Sources */,
 				AF9B4EDCCB85426B6D47EEAA6E3ADBAD /* FusionCloudIOS-dummy.m in Sources */,
 				1D53C9DE4F439ECF57F92B2BE3E30D48 /* InputRequest.swift in Sources */,
 				8756E99E478CD62EB4F94693DDCA0893 /* InputResponse.swift in Sources */,
 				FDEDE458E8941C09070D12AD0F83BE9C /* LoginRequest.swift in Sources */,
+				26B7F1152AAECD55006A5DDC /* PairingData.swift in Sources */,
 				5C4A6DF286A4C66BEBF424B767E449F3 /* LoginResponse.swift in Sources */,
 				8E6B7C1729483E0B8B303301D072A1F2 /* LogoutRequest.swift in Sources */,
 				F3C50B931C1F157E5BAE64F12DF39EAE /* LogoutResponse.swift in Sources */,

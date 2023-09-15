@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FusionCloudIOS'
-  s.version          = '0.1.2'
-  s.summary          = 'FusionCloudIOS API for Satellite.'
+  s.version          = '0.1.3'
+  s.summary          = 'FusionCloudIOS API for Satellite with QR code pairing logic'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?

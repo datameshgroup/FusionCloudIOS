@@ -250,6 +250,11 @@ public class FusionClient: WebSocketDelegate{
         let mh = self.messageHeader!.toJSONString()
 
         if mh!.contains("Login") {
+
+            if(fusionCloudConfig!.kekValue == nil){
+                fusionClientDelegate?.credentialsError(client: self, error: "Missing KEK Value")
+                return
+            }
             let k = fusionCloudConfig!.kekValue!
             if k.count != 48{
                 appendLog(type: "error", content: "Invalid KEK Value")
@@ -293,4 +298,39 @@ public class FusionClient: WebSocketDelegate{
         }
     }
     
+    public func getPairingDataJson(posName : String?) -> String! {
+        return getPairingData(posName: posName).toJSONString()
+    }
+    
+    func getPairingData(posName : String?) -> PairingData {
+        let pairingData = PairingData()
+        pairingData.saleID = fusionCloudConfig!.saleID ?? UUID().uuidString
+        pairingData.pairingPOIID = UUID().uuidString
+        pairingData.kek = fusionCloudConfig!.kekValue
+        pairingData.cerificationCode = fusionCloudConfig!.certificationCode
+        pairingData.posName = posName
+        pairingData.version = 1
+        
+        return pairingData
+    }
+    
+    public func createPairingData (saleID: String?, pairingPOIID: String?, kek: String?, posName: String?, certificationCode: String?, version:Int = 1) -> PairingData? {
+        if certificationCode == nil{
+            appendLog(type: "error", content: "Invalid pairing request. certificationCode == nil")
+            return nil
+        }
+        let pairingData = PairingData()
+        pairingData.saleID = (saleID ?? "").isEmpty ? UUID().uuidString : saleID!
+        pairingData.pairingPOIID = (pairingPOIID ?? "").isEmpty ? UUID().uuidString : pairingPOIID!
+        pairingData.kek = (kek ?? "").isEmpty ? PairingData.createKEK() : kek!
+        pairingData.cerificationCode = certificationCode
+        pairingData.posName = (posName ?? "").isEmpty ? "IOS POS" : posName!
+        pairingData.version = version
+
+        return pairingData
+    }
+    
+    public func disconnect(){
+        socket?.disconnect()
+    }
 }
