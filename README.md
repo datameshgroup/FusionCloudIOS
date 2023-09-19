@@ -1,4 +1,5 @@
 # FusionCloudIOS
+<<<<<<< HEAD
 
 [![CI Status](https://img.shields.io/travis/datameshgroup/FusionCloudIOS.svg?style=flat)](https://travis-ci.org/datameshgroup/FusionCloudIOS)
 [![Version](https://img.shields.io/cocoapods/v/FusionCloudIOS.svg?style=flat)](https://cocoapods.org/pods/FusionCloudIOS)
@@ -27,3 +28,6 @@ datameshgroup, vanessa_agustin@yahoo.com
 ## License
 
 FusionCloudIOS is available under the MIT license. See the LICENSE file for more info.
+=======
+Cocoapod for iOS version of the FusionCloud API
+>>>>>>> origin/master
