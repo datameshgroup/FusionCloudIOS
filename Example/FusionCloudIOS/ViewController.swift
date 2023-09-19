@@ -480,9 +480,9 @@ class ViewController: UIViewController, FusionClientDelegate {
         let receiptHTML = (paymentResponse.paymentReceipt?[0].getReceiptAsHtmlText())
         
         // Just a test log to know the difference between getReceiptAsHtmlText and getReceiptAsPlainText
-        print("\getReceiptAsHtmlText\n" + receiptHTML! + "\n")
+        print("\ngetReceiptAsHtmlText\n" + receiptHTML! + "\n")
         let test = (paymentResponse.paymentReceipt?[0].getReceiptAsPlainText())
-        print("\getReceiptAsPlainText\n" + test! + "\n")
+        print("\ngetReceiptAsPlainText\n" + test! + "\n")
           
         
         if(success) {
