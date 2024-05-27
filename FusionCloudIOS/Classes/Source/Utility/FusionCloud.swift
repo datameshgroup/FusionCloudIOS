@@ -8,7 +8,7 @@
 import Foundation
 
 public class FusionCloudConfig{
-    public var serverDomain: String?
+    public var serverDomain: String!
     public var kekValue: String?
     public var keyIdentifier: String?
     public var keyVersion: String?
@@ -22,16 +22,8 @@ public class FusionCloudConfig{
     
     public var allowSelfSigned: Bool?
     
-//    public required init(testEnvironmentui: Bool?) {
-//        testEnvironment = testEnvironmentui ?? true
-//
-//        self.serverDomain = testEnvironment ? "wss://www.cloudposintegration.io/nexodev" : "wss://nexo.datameshgroup.io:5000"
-//        self.keyIdentifier = testEnvironment ? "SpecV2TestMACKey" : "SpecV2ProdMACKey"
-//        self.keyVersion = testEnvironment ? "20191122164326" : "20191122164326"
-//
-//    }
-    
     public required init(testEnvironmentui: Bool?,
+                         customURL: String?=nil,
                          providerIdentification:String!,
                          applicationName:String!,
                          certificationCode: String!,
@@ -42,9 +34,10 @@ public class FusionCloudConfig{
         self.certificationCode = certificationCode
         self.softwareVersion = softwareVersion
         
-        self.serverDomain = testEnvironment ? "wss://www.cloudposintegration.io/nexodev" : "wss://nexo.datameshgroup.io:5000"
+        self.serverDomain = customURL ?? (testEnvironment ? "wss://www.cloudposintegration.io/nexouat1" : "wss://nexo.datameshgroup.io:5000")
         self.keyIdentifier = testEnvironment ? "SpecV2TestMACKey" : "SpecV2ProdMACKey"
         self.keyVersion = testEnvironment ? "20191122164326" : "20191122164326"
+    
         
     }
     

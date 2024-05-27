@@ -55,16 +55,125 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF86EB55-C95D-400C-92B7-E31FA325364E"
+            uuid = "BE8EE54D-2D97-4029-BA91-8C54C97A4624"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FusionCloudIOS/QRController.swift"
+            startingColumnNumber = "9"
+            endingColumnNumber = "10"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "p"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "BE8EE54D-2D97-4029-BA91-8C54C97A4624 - 56c4f9a211f7271a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FusionCloudIOS_Example.QRController.p.getter : Swift.String"
+                  moduleName = "FusionCloudIOS_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vanessa/Desktop/ios/pod/FusionCloudIOS/Example/FusionCloudIOS/QRController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "103">
+               </Location>
+               <Location
+                  uuid = "BE8EE54D-2D97-4029-BA91-8C54C97A4624 - 61c0d6c02a1e576e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FusionCloudIOS_Example.QRController.p.setter : Swift.String"
+                  moduleName = "FusionCloudIOS_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vanessa/Desktop/ios/pod/FusionCloudIOS/Example/FusionCloudIOS/QRController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "BE8EE54D-2D97-4029-BA91-8C54C97A4624 - 610db4d63992e76e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FusionCloudIOS_Example.QRController.p.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "FusionCloudIOS_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vanessa/Desktop/ios/pod/FusionCloudIOS/Example/FusionCloudIOS/QRController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "BE8EE54D-2D97-4029-BA91-8C54C97A4624 - 3c74f65625c48845"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FusionCloudIOS_Example.QRController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; FusionCloudIOS_Example.QRController"
+                  moduleName = "FusionCloudIOS_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vanessa/Desktop/ios/pod/FusionCloudIOS/Example/FusionCloudIOS/QRController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "477">
+               </Location>
+               <Location
+                  uuid = "BE8EE54D-2D97-4029-BA91-8C54C97A4624 - f507cba4c9efb707"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FusionCloudIOS_Example.QRController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FusionCloudIOS_Example.QRController&gt;"
+                  moduleName = "FusionCloudIOS_Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vanessa/Desktop/ios/pod/FusionCloudIOS/Example/FusionCloudIOS/QRController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "410">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3DA778C-32F8-4CE1-81B2-02C14EF087D6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FusionCloudIOS/ViewController.swift"
+            filePath = "../FusionCloudIOS/Classes/Source/Model/client/FusionClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
-            landmarkName = "paymentResponseReceived(client:messageHeader:paymentResponse:)"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "init(fusionCloudConfig:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00DD4A99-CCB5-4F27-BBDB-51DED8EC3BC3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../FusionCloudIOS/Classes/Source/Model/client/FusionClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "init(fusionCloudConfig:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

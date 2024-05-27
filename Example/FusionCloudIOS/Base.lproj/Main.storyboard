@@ -12,7 +12,7 @@
         <!--PaymentController-->
         <scene sceneID="f4Z-ch-WhW">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" title="PaymentController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ls2-OW-nmK" customClass="ViewController" customModule="TestAppDM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" title="PaymentController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ls2-OW-nmK" customClass="ViewController" customModule="FusionCloudIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJh-qt-gZD">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="676-N3-yHR">
-                                <rect key="frame" x="62" y="11" width="420" height="210"/>
+                                <rect key="frame" x="62" y="10" width="480" height="211"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-7a-KFo">
@@ -116,7 +116,7 @@
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L62-yI-ZwS">
-                                <rect key="frame" x="567" y="287" width="431" height="502"/>
+                                <rect key="frame" x="567" y="286" width="480" height="502"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gw2-C7-XHG">
@@ -267,7 +267,7 @@
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aTb-r1-NDo">
-                                <rect key="frame" x="567" y="11" width="431" height="210"/>
+                                <rect key="frame" x="567" y="10" width="480" height="211"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="W9T-YR-5mG">
@@ -500,7 +500,7 @@
                                     <fragment content="1. On the DataMesh terminal, press the ">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="24" name=".SFNS-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="24"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -508,7 +508,7 @@
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <font key="NSFont" size="24" name="Menlo-Regular"/>
-                                            <font key="NSOriginalFont" size="24" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="24"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -516,7 +516,7 @@
                                         <string key="content"> (gear) icon, enter the merchant password, and press "Pair with POS"  2. Scan the QR code using the DataMesh terminal, and follow the instructions on the terminal screen.  3. After the terminal has successfully paired with the POS, press Next</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="24" name=".SFNS-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="24"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -599,7 +599,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" editable="NO" text="POI ID &lt;&lt;POI ID of terminal displayed here&gt;&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-Br-DOO">
-                                <rect key="frame" x="0.0" y="202" width="1080" height="127"/>
+                                <rect key="frame" x="0.0" y="202" width="1080" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>

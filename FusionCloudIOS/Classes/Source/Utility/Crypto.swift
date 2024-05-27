@@ -169,6 +169,7 @@ public class Crypto {
                 let mac = generateMAC(macBody: macBody, hexKey: hexKey)
                 
                 if mac != securityTrailer.authenticationData?.recipient?.mac {
+                    print(mac + "---------" + (securityTrailer.authenticationData?.recipient?.mac ?? "no value"))
                     throw MacValidation.runtimeError("Security Exception: MAC Don't match!")
                 }
     }
