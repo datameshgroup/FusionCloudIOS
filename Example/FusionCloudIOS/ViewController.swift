@@ -14,6 +14,7 @@ import WebKit
 var fusionClient = FusionClient()
 //Provided by DataMesh
 var fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true,
+                                          customURL: "wss://www.cloudposintegration.io/nexodev",
                                           providerIdentification: "Company A",
                                           applicationName: "POS Retail",
                                           certificationCode: "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169",
@@ -327,7 +328,7 @@ class ViewController: UIViewController, FusionClientDelegate {
             messageReference.messageCategory = MessageCategory.Payment
             transactionStatusRequest.messageReference = messageReference
             
-            fusionClient.sendMessage(requestBody: transactionStatusRequest, type: MessageCategory.TransactionStatus.rawValue)
+            fusionClient.sendMessage(requestBody: transactionStatusRequest, type: "TransactionStatusRequest")
         }
     }
     
@@ -540,6 +541,8 @@ class ViewController: UIViewController, FusionClientDelegate {
             isIncorrectServiceID=true
             return
         }
+        //TODO: checkserviceID of
+        //transactionStatusResponse.repeatedMessageResponse?.repeatedResponseMessageBody?.paymentResponse.messageHeader?.serviceID
         
         let pResponse = transactionStatusResponse.repeatedMessageResponse?.repeatedResponseMessageBody?.paymentResponse ?? nil
         let pResult = pResponse?.paymentResult ?? nil
@@ -667,6 +670,9 @@ class ViewController: UIViewController, FusionClientDelegate {
     ///Leaving Event Notification for logs
     func eventNotificationReceived(client: FusionClient, messageHeader: MessageHeader, eventNotification: EventNotification) {
         txtLogs.text.append("Ignoring Event Notification above\r\n")
+//        if inErrorHandling {
+//            self.doTransactionStatus()
+//        }
     }
     
     func reconcilationResponseReceived(client: FusionClient, messageHeader: MessageHeader, reconcilationResponse: ReconciliationResponse) {
@@ -698,7 +704,7 @@ class ViewController: UIViewController, FusionClientDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10)) { [self] in
             if self.secondsRemaining>0{
                 UserDefaults.standard.initFusion()
-//                fusionClient.fusionClientDelegate = self
+                fusionClient.fusionClientDelegate = self
             }
         }
     }
@@ -707,7 +713,7 @@ class ViewController: UIViewController, FusionClientDelegate {
         let strFormatted = data.data(using: .utf8)!.prettyPrintedJSONString!
         txtLogs.text.append(contentsOf: "\r\n\r\n\(Date().ISO8601Format()) \(strFormatted as String) \n\n")
     }
-    
+     
     func socketError(client: FusionClient, error: Error) {
         print("socket error")
         //stopTimer()

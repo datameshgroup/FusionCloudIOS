@@ -57,26 +57,39 @@ public enum SaleCapability: String {
 }
 
 //TODO: Translate java below to swift
-//public enum PaymentBrand {
-//    @Json(name = "VISA") VISA,
-//    Mastercard,
-//    @Json(name = "American Express") AmericanExpress,
-//    @Json(name = "Diners Club") DinersClub,
-//    JCB,
-//    @Json(name = "UnionPay") UnionPay,
-//    @Json(name = "CUP Debit") CUPDebit,
-//    Discover,
-//    Debit,
-//    AliPay,
-//    @Json(name = "WeChat Pay") WeChatPay,
-//    Card,
-//    @Json(name = "CryptoDotCom") CryptoDotCom,
-//    @Json(name = "BPGiftCard") BPGiftCard,
-//    @Json(name = "QantasPoints") QantasPoints,
-//    @Json(name = "DRCDollars") DRCDollars,
-//    @Json(name = "Cash") Cash,
-//    Other
-//}
+public enum PaymentBrand {
+    case VISA(String = "VISA")
+    case Mastercard(String = "Mastercard")
+    case AmericanExpress(String = "American Express")
+    case DinersClub(String = "Diners Club")
+    case JCB
+    case UnionPay
+    case CUPDebit(String = "CUP Debit")
+    case Discover
+    case Debit
+    case AliPay
+    case WeChatPay(String = "WeChat Pay")
+    case Card
+    case CryptoDotCom
+    case BPGiftCard
+    case QantasPoints
+    case DRCDollars
+    case Cash
+    
+    case FastCard
+    case eTicket
+    case DigitalProduct(String = "Digital Product")
+    case ACTTSS(String = "ACT TSS")
+    case NSWTSS(String = "NSW TSS")
+    case NTTSS(String = "NT TSS")
+    case QLDTSS(String = "QLD TSS")
+    case SATSS(String = "SA TSS")
+    case TASTSS(String = "TAS TSS")
+    case VICTSS(String = "VIC TSS")
+    case WATSS(String = "WA TSS")
+    
+    case Other
+}
 
 
 public enum PaymentType: String {

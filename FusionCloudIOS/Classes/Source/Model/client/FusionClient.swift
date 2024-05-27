@@ -34,6 +34,10 @@ public protocol FusionClientDelegate: AnyObject {
 
 @available(iOS 12.0, *)
 public class FusionClient: WebSocketDelegate{
+    
+    var lastTxnServiceID = ""
+    var lastMessageRefServiceID = ""
+    
     public func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(_):
@@ -71,7 +75,6 @@ public class FusionClient: WebSocketDelegate{
     }
     
 
-    
     func parseResponse(str: String){
         appendLog(type: "info", content: "RX: \(str)")
         
@@ -92,6 +95,9 @@ public class FusionClient: WebSocketDelegate{
                 appendLog(type: "error", content: "Invalid response. Data == nil") //logtype: error
                 return
             }
+            
+            // Validate MessageHeader ServiceID
+//            if
             
             switch(mh!.messageCategory)
             {
@@ -186,7 +192,7 @@ public class FusionClient: WebSocketDelegate{
     public init(fusionCloudConfig: FusionCloudConfig){
         self.fusionCloudConfig = fusionCloudConfig
         let request = URLRequest(url: URL(string: fusionCloudConfig.serverDomain!)!)
-        let pinner = FoundationSecurity(allowSelfSigned: fusionCloudConfig.allowSelfSigned ?? true) // don't validate SSL certificates FOR NOW
+        let pinner = FoundationSecurity(allowSelfSigned: fusionCloudConfig.allowSelfSigned ?? false) // don't validate SSL certificates FOR NOW
         self.socket = WebSocket(request: request, certPinner: pinner)
         socket!.delegate = self
         socket!.connect()
@@ -247,9 +253,9 @@ public class FusionClient: WebSocketDelegate{
       }
 
     public func sendMessage<T: Mappable>(requestBody: T, type: String){
-        let mh = self.messageHeader!.toJSONString()
+//        let mh = self.messageHeader!.toJSONString()
 
-        if mh!.contains("Login") {
+        if self.messageHeader!.messageCategory == MessageCategory.Login {
 
             if(fusionCloudConfig!.kekValue == nil){
                 fusionClientDelegate?.credentialsError(client: self, error: "Missing KEK Value")
@@ -277,9 +283,16 @@ public class FusionClient: WebSocketDelegate{
                 }
             }
         }
+        
     
         let request = crypto.buildRequest(kek: fusionCloudConfig!.kekValue!, request: requestBody, header: self.messageHeader!, security: self.securityTrailer!, type: type)
 
+        // Save MessageHeader ServiceID to compare with response
+        if !(self.messageHeader!.messageCategory == MessageCategory.Abort){
+            lastTxnServiceID = (self.messageHeader?.serviceID)!
+            appendLog(type: "info", content: "equest ServiceID = \(lastTxnServiceID)")
+        }
+        
         appendLog(type: "info", content: "TX: \(request)")
         socket!.write(data: request.data(using: .utf8)!, completion: {})
     }
@@ -328,6 +341,16 @@ public class FusionClient: WebSocketDelegate{
         pairingData.version = version
 
         return pairingData
+    }
+    
+    func validateMessage(message: SaleToPOI) -> Bool {
+        if(lastTxnServiceID.isEmpty)
+        {
+            return true;
+        }
+        else{
+            return false
+        }
     }
     
     public func disconnect(){
