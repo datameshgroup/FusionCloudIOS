@@ -192,7 +192,7 @@ public class FusionClient: WebSocketDelegate{
     public init(fusionCloudConfig: FusionCloudConfig){
         self.fusionCloudConfig = fusionCloudConfig
         let request = URLRequest(url: URL(string: fusionCloudConfig.serverDomain!)!)
-        let pinner = FoundationSecurity(allowSelfSigned: fusionCloudConfig.allowSelfSigned ?? false) // don't validate SSL certificates FOR NOW
+        let pinner = FoundationSecurity(allowSelfSigned: fusionCloudConfig.allowSelfSigned ?? true)
         self.socket = WebSocket(request: request, certPinner: pinner)
         socket!.delegate = self
         socket!.connect()

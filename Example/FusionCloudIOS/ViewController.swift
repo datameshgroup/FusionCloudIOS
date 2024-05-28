@@ -20,6 +20,7 @@ var fusionCloudConfig = FusionCloudConfig(testEnvironmentui: true,
                                           certificationCode: "98cf9dfc-0db7-4a92-8b8cb66d4d2d7169",
                                           softwareVersion: "01.00.00")
 
+
 class ViewController: UIViewController, FusionClientDelegate {
     @IBOutlet weak var vwRequest: UIView!
     @IBOutlet weak var vwLoading: UIView!
@@ -35,6 +36,7 @@ class ViewController: UIViewController, FusionClientDelegate {
     @IBOutlet weak var btnBottom: UIButton!
     @IBOutlet weak var btnSelectAll: UIButton!
     @IBOutlet weak var btnSettings: UIImageView!
+    @IBOutlet weak var btnEcomm: UIButton!
     
     @IBOutlet weak var txtRequestedAmount: UITextField!
     @IBOutlet weak var txtTipAmount: UITextField!
@@ -65,6 +67,7 @@ class ViewController: UIViewController, FusionClientDelegate {
     var inErrorHandling = false
     var isIncorrectServiceID = false
     var inLogin = false
+    var inEcomm = false
     
     /// ServiceId of the current request in progress
     var currentPaymentServiceId: String?
@@ -101,6 +104,7 @@ class ViewController: UIViewController, FusionClientDelegate {
         ErrorHandlingLimit = 90 //90 seconds
         
         inLogin = false
+        inEcomm = false
         isIncorrectServiceID = false
         secondsRemaining = 0
         txtTimer.text = "0"
@@ -134,7 +138,7 @@ class ViewController: UIViewController, FusionClientDelegate {
             }
             secondsRemaining -= 1
         }
-        else if !inLogin {
+        else if (!inLogin && !inEcomm) {
             if (!inErrorHandling) {
                 resetTimer()
                 doAbort(abortReason: "Transaction Cancel")
@@ -155,7 +159,7 @@ class ViewController: UIViewController, FusionClientDelegate {
             }
             
         }
-        else if inLogin {
+        else if (inLogin || inEcomm) {
             stopTimer()
         }
     }
@@ -269,6 +273,11 @@ class ViewController: UIViewController, FusionClientDelegate {
         
     }
     
+    @IBAction func btnDoCardAcquisition(_ sender: Any) {
+        self.doCardAcquisition()
+    }
+    
+    
     @IBAction func btnDoLogin(_ sender: UIButton) {
         btnLogin.isEnabled = false
         self.doLogin()
@@ -330,6 +339,50 @@ class ViewController: UIViewController, FusionClientDelegate {
             
             fusionClient.sendMessage(requestBody: transactionStatusRequest, type: "TransactionStatusRequest")
         }
+    }
+    
+    func doCardAcquisition(){
+        
+        // make sure that SaleID (POS) is set to IsEcommercePos:true
+        
+        initValues()
+        showReceipt(doShow: false)
+        wvReceipt.loadHTMLString("", baseURL: Bundle.main.bundleURL)
+    
+        currentTransaction = "CardAcquisitionRequest"
+        clearResults()
+
+        currentTransactionServiceID = UUID().uuidString
+        fusionClient.messageHeader?.serviceID = currentTransactionServiceID
+        fusionClient.messageHeader?.messageCategory = MessageCategory.CardAcquisition
+        
+        
+        let cardAcquisitionRequest = CardAcquisitionRequest()
+        
+            let saleTerminalData = SaleTerminalData()
+                saleTerminalData.terminalEnvironment = TerminalEnvironment.Unattended
+                saleTerminalData.saleCapabilities = [SaleCapability.CashierStatus, SaleCapability.CashierError, SaleCapability.CashierInput, SaleCapability.CustomerAssistance, SaleCapability.PrinterReceipt]
+            
+            let saleData = SaleData()
+                saleData.saleTerminalData = saleTerminalData
+                saleData.tokenRequestedType = "Customer"
+                saleData.saleTransactionID = SaleTransactionID(transactionID: "xxx12345678")
+            
+        cardAcquisitionRequest.saleData = saleData
+        
+        
+        inEcomm = true
+        timeoutStart()
+        fusionClient.sendMessage(requestBody: cardAcquisitionRequest, type: "CardAcquisitionRequest")
+        
+
+        txtPaymentUIDisplay.text = "ECOMM IN PROGRESS"
+        
+        //Disable other buttons, show abort
+        btnAbort.isHidden=false
+        btnPurchase.isEnabled=false
+        btnRefund.isEnabled=false
+        btnLogin.isEnabled=false
     }
     
     func doLogin() {
@@ -652,15 +705,31 @@ class ViewController: UIViewController, FusionClientDelegate {
     }
     
     func displayRequestReceived(client: FusionClient, messageHeader: MessageHeader, displayRequest: DisplayRequest) {
-
-        if(messageHeader.serviceID != currentTransactionServiceID){
-            //print("ignoring incorrect service id display request above")
-            incorrectValue = messageHeader.serviceID
-            isIncorrectServiceID=true
-            return
-        }
+        print("displayRequestReceived")
+        // TODO check nexo DisplayRequest serviceID
+//        if(messageHeader.serviceID != currentTransactionServiceID){
+//            print("ignoring incorrect service id display request above")
+//            incorrectValue = messageHeader.serviceID
+//            isIncorrectServiceID=true
+//            return
+//        }
         showReceipt(doShow: false)
-        txtPaymentUIDisplay.text = displayRequest.getCashierDisplayAsPlainText()
+        
+        if inEcomm{
+            txtPaymentUIDisplay.text = "Complete Payment in browser"
+            let tokenURL = displayRequest.displayOutput?.outputContent?.outputText?.text?.replacingOccurrences(of: "Card Tokenization URL | ", with: "")
+            print(displayRequest.displayOutput?.outputContent?.outputText?.text ?? "nil")
+            print(tokenURL ?? "nil")
+            
+            if let link = URL(string: tokenURL!) {
+              UIApplication.shared.open(link)
+            }
+    
+        }else{
+            showReceipt(doShow: false)
+            txtPaymentUIDisplay.text = displayRequest.getCashierDisplayAsPlainText()
+            
+        }
         if (!inErrorHandling) {
             stopTimer()
             secondsRemaining = timoutLimit
@@ -681,6 +750,30 @@ class ViewController: UIViewController, FusionClientDelegate {
     
     func cardAcquisitionResponseReceived(client: FusionClient, messageHeader: MessageHeader, cardAcquisitionResponse: CardAcquisitionResponse) {
         print("cardAcquisitionResponseReceived!")
+       
+        var enableButtons = true
+        
+        if(messageHeader.serviceID != currentTransactionServiceID){
+            incorrectValue = messageHeader.serviceID
+            isIncorrectServiceID = true
+            inLogin=true
+            return
+        }
+        if (cardAcquisitionResponse.response?.result != ResponseResult.Success) {
+            enableButtons = false
+            print("CardAcquisition Error!")
+            txtPaymentUIDisplay.text = "CardAcquisition FAILED"
+            btnLogin.isEnabled = true
+        }
+        else{
+            txtPaymentUIDisplay.text = "CardAcquisition SUCCESSFUL"
+            self.btnPurchase.isEnabled = enableButtons
+            self.btnAbort.isEnabled = enableButtons
+            self.btnRefund.isEnabled = enableButtons
+        }
+        btnLogin.isEnabled = true
+        stopTimer()
+        
     }
     
     func logoutResponseResponseReceived(client: FusionClient, messageHeader: MessageHeader, logoutResponse: LogoutResponse) {

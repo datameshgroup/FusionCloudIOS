@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FusionCloudIOS'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'FusionCloudIOS API for Satellite with QR code pairing logic'
 
 # This description is used to generate tags and improve search results.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/van-agustin/FusionCloudIOS'
+  s.homepage         = 'https://github.com/datameshgroup/FusionCloudIOS'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'datameshgroup' => 'vanessa@datameshgroup.com' }
